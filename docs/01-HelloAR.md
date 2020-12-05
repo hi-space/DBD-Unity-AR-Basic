@@ -33,7 +33,7 @@ AR Foundation 을 사용하기 위해 프로젝트에 AR Fondation 패키지를 
   
 ### __2. Player Settings__
 
-![player-settings](img/1/player-settings.PNG)
+![player-settings](img/1/player-settings.png)
 
 Android로 AR 을 빌드하기 위한 세팅을 해준다.
 
