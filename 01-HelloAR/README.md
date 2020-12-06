@@ -22,7 +22,7 @@ AR을 지원하는 App을 빌드하고, 디바이스의 카메라를 이용해 3
 
 ### __1. Package Manager__
 
-![package-manager](img/1/package-manager.png)
+![package-manager](img/package-manager.png)
 
 AR Foundation 을 사용하기 위해 프로젝트에 AR Fondation 패키지를 설치해야 한다.
 
@@ -33,7 +33,7 @@ AR Foundation 을 사용하기 위해 프로젝트에 AR Fondation 패키지를 
   
 ### __2. Player Settings__
 
-![player-settings](img/1/player-settings.png)
+![player-settings](img/player-settings.png)
 
 Android로 AR 을 빌드하기 위한 세팅을 해준다.
 
@@ -46,7 +46,7 @@ Android로 AR 을 빌드하기 위한 세팅을 해준다.
 
 ### __3. Hierarchy__
 
-![ar-session](img/1/ar-session.png)
+![ar-session](img/ar-session.png)
 
 AR 앱을 만들기 위한 필수 Component인 `AR Session`과 `AR Session Origin`을 추가한다.
 
@@ -56,7 +56,7 @@ AR 앱을 만들기 위한 필수 Component인 `AR Session`과 `AR Session Origi
 `AR Session Origin`에는 `AR Camera` 가 포함되어 있다. 사용자의 입장에서 봤을 때, 실제 카메라의 
 위치라고 생각하면 된다. 카메라의 위치를 원점으로 해서 AR 요소들이 transform 된다.
 
-![ar-camera](img/1/ar-camera.png)
+![ar-camera](img/ar-camera.png)
 
 `AR Camera`의 Tag를 `MainCamera`로 바꿔준다. hierarchy에 다른 카메라 컴포넌트가 있으면 삭제해준다.
 
@@ -64,7 +64,7 @@ AR 앱을 만들기 위한 필수 Component인 `AR Session`과 `AR Session Origi
 
 위 과정까지 진행하고 빌드를 하게되면 AR카메라 화면만 뜨게 된다. 이제 이 카메라를 통해 평면이 인식되는 것을 시각화해서 확인해보자.
 
-![ar-component](img/1/project-hierarchy.png)
+![ar-component](img/project-hierarchy.png)
 
 `AR Session Origin`에 AR 요소들을 맵핑시키기 위해 이 내부에 component들을 추가한다.
 
@@ -78,4 +78,4 @@ Default 로 제공하는 Prefab들이 이미 존재한다. hierarchy에 `AR Defa
 
 ### __5. Result__
 
-![output-1](img/1/output.png)
+![output-1](img/output.png)
