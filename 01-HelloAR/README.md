@@ -12,6 +12,8 @@ Unity는 Cross-platform 을 지원하는 AR 플랫폼을 만들기 위해 `AR Fo
 
 ## Let's Code
 
+![output-1](img/output.png)
+
 가장 기본적인 AR 앱 프로젝트이다.   
 AR을 지원하는 App을 빌드하고, 디바이스의 카메라를 이용해 3D로 평면 인식, 얼굴 인식이 되는 것을 확인하려 한다.  
 
@@ -75,7 +77,3 @@ AR 앱을 만들기 위한 필수 Component인 `AR Session`과 `AR Session Origi
 Default 로 제공하는 Prefab들이 이미 존재한다. hierarchy에 `AR Default Point Cloud`, `AR Default Plane`, `AR Default Face` 를 올린 후, component의 prefab 위치에 연결한다.
    
 `AR Point Cloud Manager`, `AR Plane Manager` 컴포넌트를 추가하면 후면 카메라가 뜨고 `AR Face Manager`를 추가하면 전면 카메라가 뜨기 때문에 테스트를 할 때는 별개로 빌드해서 테스트 해야한다.
-
-### __5. Result__
-
-![output-1](img/output.png)
