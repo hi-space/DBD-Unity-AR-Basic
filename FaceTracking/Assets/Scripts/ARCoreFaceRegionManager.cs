@@ -29,12 +29,6 @@ public class ARCoreFaceRegionManager : MonoBehaviour
         // instantiatedPrefabs = new Dictionary<TrackableId, Dictionary<ARCoreFaceRegion, GameObject>>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -57,9 +51,6 @@ public class ARCoreFaceRegionManager : MonoBehaviour
 
                     noseObject.transform.localPosition = faceRegion.pose.position;
                     noseObject.transform.localRotation = faceRegion.pose.rotation;
-
-                    Debug.Log("Nose: " + noseObject.transform.ToString());
-
                 }
                 else if (regionType == ARCoreFaceRegion.ForeheadLeft)
                 {
@@ -70,8 +61,6 @@ public class ARCoreFaceRegionManager : MonoBehaviour
 
                     foreheadLeft.transform.localPosition = faceRegion.pose.position;
                     foreheadLeft.transform.localRotation = faceRegion.pose.rotation;
-
-                    Debug.Log("Left: " + noseObject.transform.ToString());
                 }
                 else if (regionType == ARCoreFaceRegion.ForeheadRight)
                 {
@@ -82,8 +71,6 @@ public class ARCoreFaceRegionManager : MonoBehaviour
 
                     foreheadRight.transform.localPosition = faceRegion.pose.position;
                     foreheadRight.transform.localRotation = faceRegion.pose.rotation;
-
-                    Debug.Log("Right: " + noseObject.transform.ToString());
                 }
             }
 
