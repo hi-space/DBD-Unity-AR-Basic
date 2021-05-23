@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62205c453105944feaa37e550d882029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEyePrefab: {fileID: 801834847461587048, guid: fbc4fec22e5bb4d838bd44a6e05dc5a8, type: 3}
+  leftEyePrefab: {fileID: 4590746632170343320, guid: a43c740b22282445d97d29926e261993, type: 3}
   rightEyePrefab: {fileID: 3255674011348825024, guid: 97c3fcf80d6034adfbdab38a4c83b27b, type: 3}
 --- !u!114 &226831408
 MonoBehaviour:

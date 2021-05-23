@@ -14,7 +14,6 @@ public class AREyeTracking : MonoBehaviour
     GameObject lefEyeGameObject;
     GameObject rightEyeGameObject;
 
-
     ARFaceManager arFaceManager;
 
     // Start is called before the first frame update
@@ -48,9 +47,8 @@ public class AREyeTracking : MonoBehaviour
             lefEyeGameObject.transform.position = face.leftEye.position;
             rightEyeGameObject.transform.position = face.rightEye.position;
 
-            leftEyePrefab.transform.rotation = face.leftEye.rotation;
+            //leftEyePrefab.transform.rotation = face.leftEye.rotation;
             rightEyePrefab.transform.rotation = face.rightEye.rotation;
-
         }
 
     }
