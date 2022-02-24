@@ -8,14 +8,18 @@ public class ARBodyTracker : MonoBehaviour
 {
     [SerializeField]
     GameObject mSkeletonPrefab;
+
+    [SerializeField]
+    GameObject mDebugPrefab;
     ARHumanBodyManager mHumanBodyManager;
+
+    GameObject bodyObject;
 
     Dictionary<TrackableId, BoneController> mSkeletonTracker = new Dictionary<TrackableId, BoneController>();
 
     void Awake()
     {
         mHumanBodyManager = (ARHumanBodyManager) GetComponent<ARHumanBodyManager>();
-        
     }
 
     private void OnEnable()
@@ -30,33 +34,47 @@ public class ARBodyTracker : MonoBehaviour
 
     void OnHumanBodiesChanged(ARHumanBodiesChangedEventArgs eventArgs)
     {
-        BoneController boneController;
-
         foreach (var humanBody in eventArgs.added)
         {
-            if (!mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
-            {
-                var newSkeleton = Instantiate(mSkeletonPrefab, humanBody.transform);
-                boneController = newSkeleton.GetComponent<BoneController>();
-                mSkeletonTracker.Add(humanBody.trackableId, boneController);
-            }
-
-            boneController.InitializeSkeletonJoints();
-            boneController.ApplyBodyPose(humanBody);
+            Debug.Log("Created new body");
+            bodyObject = Instantiate(mSkeletonPrefab, humanBody.transform);
         }
 
         foreach (var humanBody in eventArgs.updated)
         {
-            if (mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+            bodyObject.transform.position = humanBody.transform.position;
+            bodyObject.transform.rotation = humanBody.transform.rotation;
+            bodyObject.transform.localScale = humanBody.transform.localScale;
+
+            var joints = humanBody.joints;
+            for (int i = 0; i < joints.Length; i++)
             {
-                boneController.ApplyBodyPose(humanBody);
+                Debug.Log("=====>" + i);
+                Debug.Log(joints[i].localPose);
             }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //BoneController boneController;
+
+        //foreach (var humanBody in eventArgs.added)
+        //{
+        //    if (!mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+        //    {
+        //        var newSkeleton = Instantiate(mSkeletonPrefab, humanBody.transform);
+        //        boneController = newSkeleton.GetComponent<BoneController>();
+        //        mSkeletonTracker.Add(humanBody.trackableId, boneController);
+        //    }
+
+        //    boneController.InitializeSkeletonJoints();
+        //    boneController.ApplyBodyPose(humanBody);
+        //}
+
+        //foreach (var humanBody in eventArgs.updated)
+        //{
+        //    if (mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+        //    {
+        //        boneController.ApplyBodyPose(humanBody);
+        //    }
+        //}
     }
 }
