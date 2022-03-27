@@ -11,15 +11,20 @@ public class ARBodyTracker : MonoBehaviour
 
     [SerializeField]
     GameObject mDebugPrefab;
+
     ARHumanBodyManager mHumanBodyManager;
 
     GameObject bodyObject;
+    
+    Dictionary<int, Transform> debugJoints = new Dictionary<int, Transform>();
 
     Dictionary<TrackableId, BoneController> mSkeletonTracker = new Dictionary<TrackableId, BoneController>();
 
+    BoneController boneController = new BoneController();
+
     void Awake()
     {
-        mHumanBodyManager = (ARHumanBodyManager) GetComponent<ARHumanBodyManager>();
+        mHumanBodyManager = (ARHumanBodyManager)GetComponent<ARHumanBodyManager>();
     }
 
     private void OnEnable()
@@ -34,35 +39,15 @@ public class ARBodyTracker : MonoBehaviour
 
     void OnHumanBodiesChanged(ARHumanBodiesChangedEventArgs eventArgs)
     {
-        //foreach (var humanBody in eventArgs.added)
-        //{
-        //    Debug.Log("Created new body");
-        //    bodyObject = Instantiate(mSkeletonPrefab, humanBody.transform);
-        //}
+        MappingBodyMesh(eventArgs);
+        // DrawDebugJoints(eventArgs);
+    }
 
-        //foreach (var humanBody in eventArgs.updated)
-        //{
-        //    bodyObject.transform.position = humanBody.transform.position;
-        //    bodyObject.transform.rotation = humanBody.transform.rotation;
-        //    bodyObject.transform.localScale = humanBody.transform.localScale;
-        //    var joints = humanBody.joints;
-
-        //    for (int i = 0; i < joints.Length; i++)
-        //    {
-        //        Debug.Log("=====>" + joints[i].index + " / " + joints[i].localPose);
-        //    }
-        //}
-
-        //foreach (var humanBody in eventArgs.removed)
-        //{
-        //    Destroy(bodyObject);
-        //}
-
-        BoneController boneController;
-
+    private void MappingBodyMesh(ARHumanBodiesChangedEventArgs eventArgs)
+    {
         foreach (var humanBody in eventArgs.added)
         {
-            if (!mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+            if (!boneController) 
             {
                 var newSkeleton = Instantiate(mSkeletonPrefab, humanBody.transform);
                 boneController = newSkeleton.GetComponent<BoneController>();
@@ -75,7 +60,7 @@ public class ARBodyTracker : MonoBehaviour
 
         foreach (var humanBody in eventArgs.updated)
         {
-            if (mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+            if (boneController)
             {
                 boneController.ApplyBodyPose(humanBody);
             }
@@ -83,11 +68,73 @@ public class ARBodyTracker : MonoBehaviour
 
         foreach (var humanBody in eventArgs.removed)
         {
-            Debug.Log("Removing a skeleton [{humanBody.trackableId}].");
-            if (mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+            if (boneController)
             {
                 Destroy(boneController.gameObject);
                 mSkeletonTracker.Remove(humanBody.trackableId);
+            }
+        }
+
+        // BoneController boneController;
+
+        // foreach (var humanBody in eventArgs.added)
+        // {
+        //     if (!mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+        //     {
+        //         var newSkeleton = Instantiate(mSkeletonPrefab, humanBody.transform);
+        //         boneController = newSkeleton.GetComponent<BoneController>();
+        //         mSkeletonTracker.Add(humanBody.trackableId, boneController);
+        //     }
+
+        //     boneController.InitializeSkeletonJoints();
+        //     boneController.ApplyBodyPose(humanBody);
+
+        //     Debug.Log("created Trackable ID: " + humanBody.trackableId);
+        // }
+
+        // foreach (var humanBody in eventArgs.updated)
+        // {
+        //     if (mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+        //     {
+        //         boneController.ApplyBodyPose(humanBody);
+        //     }
+        //     Debug.Log("Trackable ID: " + humanBody.trackableId);
+        // }
+
+        // foreach (var humanBody in eventArgs.removed)
+        // {
+        //     Debug.Log("Removing a skeleton [{humanBody.trackableId}].");
+        //     if (mSkeletonTracker.TryGetValue(humanBody.trackableId, out boneController))
+        //     {
+        //         Destroy(boneController.gameObject);
+        //         mSkeletonTracker.Remove(humanBody.trackableId);
+        //     }
+        // }
+    }
+
+    private void DrawDebugJoints(ARHumanBodiesChangedEventArgs eventArgs)
+    {
+        foreach (var humanBody in eventArgs.updated)
+        {
+            var joints = humanBody.joints;
+            foreach (var joint in joints) {
+                if (!debugJoints.ContainsKey(joint.index)) {
+                    debugJoints[joint.index] = Instantiate(mDebugPrefab, humanBody.transform).transform;
+                }
+
+                debugJoints[joint.index].localPosition = joint.anchorPose.position;
+                debugJoints[joint.index].localRotation = joint.anchorPose.rotation;
+                debugJoints[joint.index].localScale = joint.anchorScale;
+
+                Debug.Log("[" + joint.index + "] " + joint.anchorPose.position + " / " + joint.localPose.position);
+            }
+        }
+
+        foreach (var humanBody in eventArgs.removed)
+        {
+            var joints = humanBody.joints;
+            foreach (var joint in joints) {
+                Destroy(debugJoints[joint.index]);
             }
         }
     }
