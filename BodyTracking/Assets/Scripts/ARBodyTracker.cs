@@ -12,6 +12,12 @@ public class ARBodyTracker : MonoBehaviour
     [SerializeField]
     GameObject mDebugPrefab;
 
+    [SerializeField]
+    float scaleOffset = 0.4f;
+
+    [SerializeField]
+    Vector3 offset;
+
     ARHumanBodyManager mHumanBodyManager;
 
     GameObject bodyObject;
@@ -52,6 +58,9 @@ public class ARBodyTracker : MonoBehaviour
                 var newSkeleton = Instantiate(mSkeletonPrefab, humanBody.transform);
                 boneController = newSkeleton.GetComponent<BoneController>();
                 mSkeletonTracker.Add(humanBody.trackableId, boneController);
+
+                boneController.transform.position += offset;
+                boneController.transform.localScale *= scaleOffset;
             }
 
             boneController.InitializeSkeletonJoints();
