@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 1765539196}
   - component: {fileID: 1765539198}
   - component: {fileID: 1765539199}
+  - component: {fileID: 1765539200}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -454,9 +455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5861fe4d817477986290fde61dbc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Pose2D: 0
-  m_Pose3D: 1
-  m_Pose3DScaleEstimation: 1
+  m_Pose2D: 1
+  m_Pose3D: 0
+  m_Pose3DScaleEstimation: 0
   m_HumanBodyPrefab: {fileID: 0}
 --- !u!114 &1765539199
 MonoBehaviour:
@@ -465,12 +466,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765539195}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fd96788c0a9e40509cb79ff0801c6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSkeletonPrefab: {fileID: 4654396844002473948, guid: 3ec9c09edecfa44feb1b3c54b3a28b51, type: 3}
+  mSkeletonPrefab: {fileID: 1997953001238138, guid: 16e7451e81164bc4caac73768f16ceb6, type: 3}
   mDebugPrefab: {fileID: 7983351083552359304, guid: ddcbd0ea4f57e4c01aaf52a6c59bacca, type: 3}
   scaleOffset: 0.4
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &1765539200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765539195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da250535633b4210a42ad071fc29943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ARCamera: {fileID: 1726654762}
+  m_LineRendererPrefab: {fileID: 6764418136768945681, guid: cf2756f0ac0da4a139a6f47664938745, type: 3}

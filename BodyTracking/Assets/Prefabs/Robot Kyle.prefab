@@ -1191,6 +1191,7 @@ GameObject:
   - component: {fileID: 5878295258180750559}
   - component: {fileID: 2612956999211675972}
   - component: {fileID: 6959305735293537315}
+  - component: {fileID: 8293595100339672652}
   m_Layer: 0
   m_Name: Robot Kyle
   m_TagString: Untagged
@@ -1242,6 +1243,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SkeletonRoot: {fileID: 8673817698443430335}
+--- !u!95 &8293595100339672652
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478437997087358668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7506929253687183373
 GameObject:
   m_ObjectHideFlags: 0
