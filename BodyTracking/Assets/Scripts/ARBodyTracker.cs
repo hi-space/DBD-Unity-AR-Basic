@@ -45,8 +45,8 @@ public class ARBodyTracker : MonoBehaviour
 
     void OnHumanBodiesChanged(ARHumanBodiesChangedEventArgs eventArgs)
     {
-        MappingBodyMesh(eventArgs);
-        // DrawDebugJoints(eventArgs);
+        // MappingBodyMesh(eventArgs);
+        DrawDebugJoints(eventArgs);
     }
 
     private void MappingBodyMesh(ARHumanBodiesChangedEventArgs eventArgs)
