@@ -45,8 +45,30 @@ public class ARBodyTracker : MonoBehaviour
 
     void OnHumanBodiesChanged(ARHumanBodiesChangedEventArgs eventArgs)
     {
+        foreach (var humanBody in eventArgs.added)
+        {
+            bodyObject = Instantiate(mSkeletonPrefab, humanBody.transform);
+        }
+        foreach (var humanBody in eventArgs.updated)
+        {
+            if (!bodyObject)
+            {
+bodyObject.transform.position = humanBody.transform.position + offset;
+            bodyObject.transform.rotation = humanBody.transform.rotation;
+            bodyObject.transform.localScale = humanBody.transform.localScale * scaleOffset;
+            }
+            
+        }
+
+        foreach (var humanBody in eventArgs.removed)
+        {
+            if (!bodyObject)
+            {
+                Destroy(bodyObject);
+            }
+        }
         // MappingBodyMesh(eventArgs);
-        DrawDebugJoints(eventArgs);
+        // DrawDebugJoints(eventArgs);
     }
 
     private void MappingBodyMesh(ARHumanBodiesChangedEventArgs eventArgs)
