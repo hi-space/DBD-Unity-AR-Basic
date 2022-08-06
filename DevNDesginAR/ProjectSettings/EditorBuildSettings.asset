@@ -6,11 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/3DBodyTracking2.unity
+    guid: 5b23d476435184910bd9fd9535e0145a
+  - enabled: 1
     path: Assets/Scenes/2DBodyTracking.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/3DBodyTracking.unity
     guid: 6d26a7584626d4b9ba026202d29dbd26
   m_configObjects:
-    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 6ac11263a204a414b820ce5fca0bc86f, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7a64e95d4f2d74a13b9dfa2268ad4043, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 6ac11263a204a414b820ce5fca0bc86f,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7a64e95d4f2d74a13b9dfa2268ad4043,
+      type: 2}

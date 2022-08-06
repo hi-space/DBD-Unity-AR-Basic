@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.18018606, g: 0.22559257, b: 0.30678663, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1410,7 +1410,7 @@ GameObject:
   - component: {fileID: 1938722706}
   - component: {fileID: 1938722705}
   - component: {fileID: 1938722708}
-  - component: {fileID: 1938722707}
+  - component: {fileID: 1938722709}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -1447,19 +1447,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1938722707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938722704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb84250ed390348a283545a6bfad7686, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vertexPrefab: {fileID: 4453741605011514267, guid: a73b84e44138547d89216e955ef8c0ce, type: 3}
 --- !u!114 &1938722708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1463,19 @@ MonoBehaviour:
   m_Pose3D: 1
   m_Pose3DScaleEstimation: 1
   m_HumanBodyPrefab: {fileID: 0}
+--- !u!114 &1938722709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938722704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625b6b5741d354134bdf656f69770d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
 --- !u!1 &2127175470
 GameObject:
   m_ObjectHideFlags: 0
